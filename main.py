@@ -10,6 +10,7 @@ sys.setdefaultencoding('utf-8')
 import re
 import uuid
 import urllib
+import urllib2
 import requests
 from bs4 import BeautifulSoup
 
@@ -21,7 +22,6 @@ import dbmodel
 # db = client.scrapdb
 
 
-
 def downloadFile(url):
 	filename = uuid.uuid4()
 	try:
@@ -30,8 +30,15 @@ def downloadFile(url):
 			filename = filenumbers[len(filenumbers) - 1]
 		filename = filename + '.pdf'
 
-		tmpfile = urllib.URLopener()
-		tmpfile.retrieve(url, 'download/' + filename)
+		# tmpfile = urllib.URLopener()
+		# tmpfile.retrieve(url, 'download/' + filename)
+		response = urllib2.urlopen('https://wordpress.org/plugins/about/readme.txt')
+		data = response.read()
+		 
+		# Write data to file
+		file_ = open('download/' + filename, 'w')
+		file_.write(data)
+		file_.close()
 	except Exception, e:
 		filename = None
 
