@@ -32,7 +32,7 @@ def downloadFile(url):
 
 		# tmpfile = urllib.URLopener()
 		# tmpfile.retrieve(url, 'download/' + filename)
-		response = urllib2.urlopen('https://wordpress.org/plugins/about/readme.txt')
+		response = urllib2.urlopen(url)
 		data = response.read()
 		 
 		# Write data to file
