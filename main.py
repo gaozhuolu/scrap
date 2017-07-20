@@ -30,8 +30,8 @@ def downloadFile(url):
 			filename = filenumbers[len(filenumbers) - 1]
 		filename = filename + '.pdf'
 
-		# tmpfile = urllib.URLopener()
-		# tmpfile.retrieve(url, 'download/' + filename)
+		tmpfile = urllib.URLopener()
+		tmpfile.retrieve(url, 'download/' + filename)
 	except Exception, e:
 		filename = None
 
