@@ -21,6 +21,14 @@ import dbmodel
 # client = MongoClient('mongodb://' + dbuser + ':' + dbpasswd + '@localhost')
 # db = client.scrapdb
 
+def downloadtest():
+	response = urllib2.urlopen('https://www.justice.gov/eoir/page/file/974211/download')
+	data = response.read()
+
+	# Write data to file
+	file_ = open('download/test.pdf', 'w')
+	file_.write(data)
+	file_.close()
 
 def downloadFile(url):
 	filename = uuid.uuid4()
@@ -32,6 +40,7 @@ def downloadFile(url):
 
 		# tmpfile = urllib.URLopener()
 		# tmpfile.retrieve(url, 'download/' + filename)
+		print url
 		response = urllib2.urlopen(url)
 		data = response.read()
 		 
@@ -128,7 +137,7 @@ def scraptest():
 					if ahref is not None:
 						pdfurl = ahref.get('href')
 				if 'http' not in pdfurl:
-					pdfurl = 'https://justice.gov' + pdfurl
+					pdfurl = 'https://www.justice.gov' + pdfurl
 
 				#print 'Name:' + name + '|'
 				#print 'Date Info:', dateinfo
@@ -156,9 +165,11 @@ def scraptest():
 				#print 'Description:', description
 
 				#Download PDF file
+				pdfurl = pdfurl.replace('https://justice.gov', 'https://www.justice.gov')
 				filename = downloadFile(pdfurl)
 				dbmodel.addRecord(name, dateinfo, pdfurl, filename)
 
 
 if __name__ == '__main__':
 	scraptest()
+	pass
