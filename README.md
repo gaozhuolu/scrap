@@ -1,5 +1,8 @@
 ## Scrap Project
-
+- Database : mongoDB
+- DB Name : scrapdb
+- Collection Name : datum
+- Used beautifulsoup4 for scraping
 
 
 
@@ -17,3 +20,5 @@ https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-16.04/
 
 
 ## Install Python packages from requirements.txt
+
+pip install requirements.txt
