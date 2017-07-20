@@ -64,6 +64,7 @@ def scraptest():
 	scrapurls.append('https://www.justice.gov/eoir/precedent-decisions-volume-09')
 	scrapurls.append('https://www.justice.gov/eoir/precedent-decisions-volume-08')
 
+	cnt = 0
 	for urlpath in scrapurls:
 		r = s.get(urlpath)#, params=payload)
 		    
@@ -72,7 +73,7 @@ def scraptest():
 		for root in roots:
 			tables = root.find_all('table')
 			for table in tables:
-				print '---------------------------'
+				print '---------- Record: ' + str(cnt) + ' -----------------'
 				tbody = table.find('tbody')
 				tr = tbody.find('tr')
 				tds = tr.find_all('td')
@@ -121,9 +122,9 @@ def scraptest():
 				if 'http' not in pdfurl:
 					pdfurl = 'https://justice.gov' + pdfurl
 
-				print 'Name:' + name + '|'
-				print 'Date Info:', dateinfo
-				print 'PDF url:', pdfurl
+				#print 'Name:' + name + '|'
+				#print 'Date Info:', dateinfo
+				#print 'PDF url:', pdfurl
 
 
 				#Get Description			
