@@ -22,3 +22,14 @@ https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-16.04/
 ## Install Python packages from requirements.txt
 
 pip install requirements.txt
+
+
+## ScreenShots
+- Database Screenshot - 1
+
+![alt text](database1.png)
+
+
+- Database Screenshot - 2
+
+![alt text](database2.png)
