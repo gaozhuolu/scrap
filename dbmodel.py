@@ -15,11 +15,12 @@ dbpasswd = urllib.quote_plus('password')
 client = MongoClient('mongodb://localhost:27017')
 db = client.scrapdb
 
-def addRecord(name, dateinfo, pdfurl, filename):
+def addRecord(name, dateinfo, pdfurl, filename, description):
 	_id = db.datum.insert({
 		'name': name,
 		'dateinfo': dateinfo,
 		'pdfurl': pdfurl,
 		'filename': filename,
+		'description': description,
 		'dateadded': datetime.datetime.utcnow()
 		})

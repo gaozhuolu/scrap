@@ -167,7 +167,7 @@ def scraptest():
 				#Download PDF file
 				pdfurl = pdfurl.replace('https://justice.gov', 'https://www.justice.gov')
 				filename = downloadFile(pdfurl)
-				dbmodel.addRecord(name, dateinfo, pdfurl, filename)
+				dbmodel.addRecord(name, dateinfo, pdfurl, filename, description)
 
 
 if __name__ == '__main__':
