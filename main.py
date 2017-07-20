@@ -73,6 +73,7 @@ def scraptest():
 		for root in roots:
 			tables = root.find_all('table')
 			for table in tables:
+				cnt = cnt + 1
 				print '---------- Record: ' + str(cnt) + ' -----------------'
 				tbody = table.find('tbody')
 				tr = tbody.find('tr')
