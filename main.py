@@ -145,7 +145,7 @@ def scraptest():
 							description = description + ' ' + tmpstr
 					if tag_name == 'hr':
 						break;
-				print 'Description:', description
+				#print 'Description:', description
 
 				#Download PDF file
 				filename = downloadFile(pdfurl)
